@@ -7,10 +7,8 @@ public class Estoque {
     private final Peca[] estoque;
     private final SystemUi systemUi;
 
-    private final int maxEstoque;
-
     public Estoque( SystemUi systemUi) {
-        this.maxEstoque = 5;
+        int maxEstoque = 5;
         this.systemUi = systemUi;
         this.estoque = new Peca[maxEstoque];
     }
@@ -27,7 +25,6 @@ public class Estoque {
 
         if(position > 4) {
             this.systemUi.displayMessage("Apenas 4 produtos no estoque");
-
             return;
         }
 
@@ -38,40 +35,45 @@ public class Estoque {
     private void mostrarProdutosNoEstoque() {
         for (int i = 0; i < this.estoque.length; i++) {
             this.systemUi.displayMessage(i  + " - " + this.estoque[i].getDescription()  + ", Estoque: " + this.estoque[i].getQuantity() );
-
         }
     }
 
 
 
-    private boolean verificarInput(int input) {
-       return input <= this.maxEstoque;
+    /**
+     * Verifica se o valor esta dentro do range do índice do estoque
+     ** @param input Valor a ser recebido pelo metódo
+     * @return Retorna o valor como boolean
+     */
+    private boolean verificaInput(int input) {
+        return input < this.estoque.length;
     }
 
-
-   public void inciarSistema()  {
-
+   public void iniciarSistema()  {
         int input;
 
+       this.systemUi.displayMessage("Iniciando sistema");
         do {
-            this.systemUi.displayMessage("Sistema de estoque");
-
+            this.systemUi.displayMessage("Selecione as opções de 0 a 5");
             this.mostrarProdutosNoEstoque();
-            this.systemUi.displayMessage("5 - Sair do sistema");
 
+            this.systemUi.displayMessage("5 - Finalizar sistema");
 
             input = this.systemUi.getIntInput();
 
-            if(this.verificarInput(input)) {
+            if(this.verificaInput(input)) {
                 Peca produto = this.estoque[input];
                 produto.venda();
                 produto.verificarEstoque();
 
-            } else {
-                systemUi.displayMessage("Informe uma tecla valida de 0 a 5");
-            }
+            }else if(input == 5) {
 
-        }while (input != 5);
+                this.systemUi.displayMessage("Finalizando Sistema");
+
+            } else {
+                this.systemUi.displayMessage("Informe um valor valido");
+            }
+        }while (input !=5);
 
    }
 

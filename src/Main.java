@@ -16,9 +16,7 @@ public class Main {
         estoque.addEstoque(new RoupaPMG("Camisa Bahia", 10, 20 , 5, terminalSystemUi), 3);
         estoque.addEstoque(new Acessorio("Pulseira", 10, 20 , 5, terminalSystemUi), 4);
 
-
-
-        estoque.inciarSistema();
+        estoque.iniciarSistema();
 
     }
 }

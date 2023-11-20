@@ -28,12 +28,13 @@ public abstract class Peca {
 
     public void reposicaoEstoque() {
             this.quantity = this.maxQuantity;
+            this.systemUi.displayMessage("Log -> Quantidade atual " + this.quantity);
     }
 
 
     protected void verificarEstoque() {
         if(this.quantity <= this.minQuantity) {
-            this.systemUi.displayMessage("O estoque 0do produto " + this.description + " Atingiu o minimo permetido, fazendo reposicao...");
+            this.systemUi.displayMessage("O estoque do produto " + this.description + " Atingiu o minimo permetido, fazendo reposicao...");
             this.reposicaoEstoque();
         }
 
