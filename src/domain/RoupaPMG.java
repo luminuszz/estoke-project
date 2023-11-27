@@ -29,7 +29,6 @@ public class RoupaPMG  extends  Peca {
         this.systemUi.displayMessage("P " + "Quantidade: "  + this.quantidadeP);
         this.systemUi.displayMessage("M " + "Quantidade: "  + this.quantidadeM);
         this.systemUi.displayMessage("G " + "Quantidade: "  + this.quantidadeG);
-
     }
 
 
@@ -71,6 +70,19 @@ public class RoupaPMG  extends  Peca {
             }
 
 
+            this.reposicaoEstoque();
+
+
+
+    }
+
+    @Override
+    public String getRelatorio() {
+        return this.description + " =>" +
+                  " Quantidade P: "  + this.quantidadeP +  ", Quantidade G: "
+                + this.quantidadeG
+                 + ", Quantidade M: "
+                + this.quantidadeM;
 
     }
 

@@ -34,7 +34,7 @@ public class Estoque {
 
     private void mostrarProdutosNoEstoque() {
         for (int i = 0; i < this.estoque.length; i++) {
-            this.systemUi.displayMessage(i  + " - " + this.estoque[i].getDescription()  + ", Estoque: " + this.estoque[i].getQuantity() );
+            this.systemUi.displayMessage(i  + " - " + this.estoque[i].getRelatorio());
         }
     }
 
@@ -48,6 +48,14 @@ public class Estoque {
     private boolean verificaInput(int input) {
         return input < this.estoque.length;
     }
+
+
+    private void encerraPrograma() {
+        for (Peca peca : this.estoque) {
+            this.systemUi.displayMessage(peca.getRelatorio());
+        }
+    }
+
 
    public void iniciarSistema()  {
         int input;
@@ -69,11 +77,15 @@ public class Estoque {
             }else if(input == 5) {
 
                 this.systemUi.displayMessage("Finalizando Sistema");
+                this.encerraPrograma();
 
             } else {
                 this.systemUi.displayMessage("Informe um valor valido");
             }
         }while (input !=5);
+
+
+
 
    }
 

@@ -23,7 +23,7 @@ public abstract class Peca {
     public abstract void venda();
 
 
-
+    public abstract String getRelatorio();
 
 
     public void reposicaoEstoque() {

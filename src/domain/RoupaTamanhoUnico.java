@@ -13,4 +13,9 @@ public class RoupaTamanhoUnico extends  Peca {
         this.quantity -=1;
 
     }
+
+    @Override
+    public String getRelatorio() {
+       return this.description + ", Quantidade: " + this.quantity;
+    }
 }

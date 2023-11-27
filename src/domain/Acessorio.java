@@ -27,5 +27,11 @@ public class Acessorio extends Peca {
 
     }
 
+    @Override
+    public String getRelatorio() {
+
+        return this.description + ", Estoque: " + this.quantity;
+    }
+
 
 }
